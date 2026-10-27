@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>따라하며 누르기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 게임 정보 (화면 왼쪽) -->
+  <div id="info">
+    <div>Stage: <span id="stage">1</span></div>
+    <div>Time: <span id="time">0.0</span></div>
+    <div>Score: <span id="score">0</span></div>
+  </div>
+
+  <!-- 북두칠성 보드: 버튼은 game.js에서 생성 -->
+  <div id="board"></div>
+
+  <!-- 화면 중앙 오버레이 -->
+  <button id="startBtn" class="red-btn">START</button>
+  <div id="message"></div>
+  <div id="failPanel" hidden>
+    <div class="fail-title">FAILED</div>
+    <div id="failInfo"></div>
+    <div class="fail-buttons">
+      <button id="retryBtn">RETRY</button>
+      <button id="mainBtn">메인화면</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

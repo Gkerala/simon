@@ -1,0 +1,98 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #000000;
+  color: #ffffff;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+/* 게임 정보: 왼쪽 위에서 아래로 */
+#info {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  font-size: 24px;
+  line-height: 1.8;
+  z-index: 2;
+}
+
+/* 북두칠성 보드: 가로세로 비율을 고정해 화면 크기가 바뀌어도 형태 유지 */
+#board {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(70vw, 120vh);
+  aspect-ratio: 16 / 9;
+}
+
+/* 원형 버튼: 위치는 보드 기준 % 좌표 */
+.star {
+  position: absolute;
+  width: 8%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.05s;
+}
+.star.lit {
+  background: var(--color);
+  box-shadow: 0 0 30px 8px var(--color);
+}
+
+/* 중앙 오버레이 요소 공통 */
+#startBtn, #message, #failPanel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.red-btn {
+  background: #e00000;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 20px 56px;
+  cursor: pointer;
+}
+
+/* 안내 문구는 클릭을 가로막지 않음 */
+#message {
+  font-size: 56px;
+  font-weight: bold;
+  pointer-events: none;
+  text-shadow: 0 0 12px #000;
+}
+
+#failPanel {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 24px 40px;
+  border-radius: 12px;
+  font-size: 22px;
+}
+#failPanel[hidden] { display: none; }
+.fail-title {
+  color: #ff2020;
+  font-size: 56px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.fail-buttons { margin-top: 20px; display: flex; gap: 16px; justify-content: center; }
+.fail-buttons button {
+  font-size: 22px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
